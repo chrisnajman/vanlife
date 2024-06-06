@@ -88,7 +88,7 @@ createServer({
       return schema.vans.all()
     })
 
-    this.get("/vanlife/:id", (schema, request) => {
+    this.get("/vans/:id", (schema, request) => {
       const id = request.params.id
       return schema.vans.find(id)
     })
