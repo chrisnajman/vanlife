@@ -7,9 +7,13 @@ function Vans() {
 
   useEffect(() => {
     async function getVans() {
-      const res = await fetch("/api/vans")
-      const vansData = await res.json()
-      setVans(vansData.vans)
+      try {
+        const res = await fetch("/api/vans")
+        const vansData = await res.json()
+        setVans(vansData.vans)
+      } catch (error) {
+        console.log(error)
+      }
     }
     getVans()
   }, [])
@@ -27,6 +31,9 @@ function Vans() {
           <img
             src={van.imageUrlPng}
             alt={van.name}
+            loading="lazy"
+            width="881"
+            height="881"
           />
         </picture>
 
