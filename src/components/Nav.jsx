@@ -38,16 +38,3 @@ function Nav() {
 }
 
 export default Nav
-
-/*
-<NavLink
-   to="service"
-   end
-   style={({ isActive }) => {
-   return isActive ? { color: "plum" } : {};
-   }}
-   >
-   Services
-</NavLink>
-
-*/

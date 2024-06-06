@@ -21,9 +21,6 @@ function VanDetails() {
 
   return (
     <div className="van-detail">
-      {/* <h1>Van Details go here</h1>
-      <p>{van ? van.name : "Loading"}</p> */}
-
       {van ? (
         <>
           <h1>{van.name}: Details</h1>
@@ -55,26 +52,3 @@ function VanDetails() {
 }
 
 export default VanDetails
-
-/*
-<h2>{van.name}</h2>
-          <picture>
-            <source
-              srcSet={van.imageUrlWebp}
-              type="image/webp"
-            />
-            <img
-              src={van.imageUrlPng}
-              alt={`The ${van.name} van`}
-              loading="lazy"
-              width="881"
-              height="881"
-            />
-          </picture>
-
-          <ul>
-            <li>Price: £{van.price}/day</li>
-            <li>Type: {van.type}</li>
-          </ul>
-
-*/
