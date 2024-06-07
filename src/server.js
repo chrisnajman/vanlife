@@ -39,7 +39,7 @@ createServer({
       imageUrlPng:
         "https://raw.githubusercontent.com/chrisnajman/vanlife-images/main/reliable-red.png",
       imageUrlWebp:
-        "https://raw.githubusercontent.com/chrisnajman/vanlife-images/main/beach-bum.webp",
+        "https://raw.githubusercontent.com/chrisnajman/vanlife-images/main/reliable-red.webp",
       type: "luxury",
     })
     server.create("van", {

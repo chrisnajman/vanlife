@@ -14,7 +14,7 @@ function App() {
     <BrowserRouter>
       <SkipLink />
       <BtnTheme />
-      <div className="page-container">
+      <div className="site-container">
         <Header title="Vanlife" />
         <main
           id="main-content"

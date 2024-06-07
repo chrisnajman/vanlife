@@ -20,7 +20,7 @@ function VanDetails() {
   }, [params.id])
 
   return (
-    <div className="van-detail">
+    <div className="van-detail-container  content-container">
       {van ? (
         <>
           <h1>{van.name}: Details</h1>

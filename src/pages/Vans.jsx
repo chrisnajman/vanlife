@@ -26,7 +26,7 @@ function Vans() {
           aria-label={`View details for ${van.name}, 
                              priced at £${van.price} per day`}
         >
-          <h2>{van.name}</h2>
+          <p>{van.name}</p>
           <picture>
             <source
               srcSet={van.imageUrlWebp}
@@ -50,10 +50,10 @@ function Vans() {
     )
   })
   return (
-    <>
+    <div className="vans-container  content-container">
       <h1>Explore our van options</h1>
       <ul className="van-list">{vanList}</ul>
-    </>
+    </div>
   )
 }
 

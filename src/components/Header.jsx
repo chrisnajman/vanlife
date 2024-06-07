@@ -4,10 +4,10 @@ import Nav from "./Nav"
 
 function Header({ title }) {
   return (
-    <header className="page-header">
-      <h1>
-        <FaVanShuttle /> <span>{title}</span>
-      </h1>
+    <header className="site-header">
+      <p className="site-header--h1">
+        <FaVanShuttle /> <span>#{title}</span>
+      </p>
       <Nav />
     </header>
   )

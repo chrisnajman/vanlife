@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 
 function Footer({ gitRepo }) {
   return (
-    <footer className="page-footer">
+    <footer className="site-footer">
       <a
         href={`https://github.com/chrisnajman/${gitRepo}`}
         target="_blank"
