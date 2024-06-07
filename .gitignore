@@ -23,6 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# Mine
-*copy*
+# mine
 ref/
+*copy*

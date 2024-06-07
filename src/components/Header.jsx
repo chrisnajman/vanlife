@@ -1,12 +1,13 @@
 import PropTypes from "prop-types"
+import { FaVanShuttle } from "react-icons/fa6"
 import Nav from "./Nav"
 
 function Header({ title }) {
   return (
     <header className="page-header">
-      <p className="h1">
-        <span>{title}</span>
-      </p>
+      <h1>
+        <FaVanShuttle /> <span>{title}</span>
+      </h1>
       <Nav />
     </header>
   )

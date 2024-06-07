@@ -9,7 +9,6 @@ function Nav() {
           {" "}
           <NavLink
             to={`${UrlRoot}`}
-            className="site-logo"
             aria-current="page"
             end
           >
