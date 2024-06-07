@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { UrlRoot } from "../components/UrlRoot"
+import { useParams, Link } from "react-router-dom"
 
 function VanDetails() {
   const params = useParams()
@@ -21,6 +22,12 @@ function VanDetails() {
 
   return (
     <div className="van-detail-container  content-container">
+      <Link
+        className="back-link"
+        to={`${UrlRoot}vans`}
+      >
+        Back to Vans list
+      </Link>
       {van ? (
         <>
           <h1>{van.name}: Details</h1>

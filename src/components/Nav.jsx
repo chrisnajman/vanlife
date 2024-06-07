@@ -27,6 +27,7 @@ function Nav() {
           <NavLink
             to={`${UrlRoot}vans`}
             aria-current="page"
+            end
           >
             Vans
           </NavLink>

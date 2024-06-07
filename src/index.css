@@ -269,6 +269,12 @@ img {
 
 /** Other **/
 
+.back-link {
+  &::before {
+    content: "\27F5 ";
+  }
+}
+
 .skip-link {
   color: var(--body-txt);
   text-decoration: none;
