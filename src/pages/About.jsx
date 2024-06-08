@@ -20,8 +20,7 @@ function About() {
           Our team is full of vanlife enthusiasts who know firsthand the magic
           of touring the world on 4 wheels.
         </p>
-      </div>
-      <div className="about-page-cta">
+
         <h2>
           <span>Your destination is waiting.</span>
           <span>Your van is ready.</span>

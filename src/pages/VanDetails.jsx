@@ -23,9 +23,10 @@ function VanDetails() {
   return (
     <div className="van-detail-container  content-container">
       <Link
-        className="back-link"
+        className="back-link link-button"
         to={`${UrlRoot}vans`}
       >
+        {" "}
         Back to Vans list
       </Link>
       {van ? (
@@ -37,6 +38,7 @@ function VanDetails() {
               type="image/webp"
             />
             <img
+              className="van-image"
               src={van.imageUrlPng}
               alt={`The ${van.name} van`}
               loading="lazy"
@@ -46,9 +48,11 @@ function VanDetails() {
           </picture>
           <p>{van.description}</p>
 
-          <ul>
+          <ul className="van-footer">
             <li>Price: £{van.price}/day</li>
-            <li>Type: {van.type}</li>
+            <li>
+              Type: <span className="van-type">{van.type}</span>
+            </li>
           </ul>
         </>
       ) : (

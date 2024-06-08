@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { UrlRoot } from "../components/UrlRoot"
 import { Link } from "react-router-dom"
+import { FaCircleArrowRight } from "react-icons/fa6"
 
 function Vans() {
   const [vans, setVans] = useState([])
@@ -22,6 +23,7 @@ function Vans() {
     return (
       <li key={van.id}>
         <Link
+          className="link-button"
           to={`${UrlRoot}vans/${van.id}`}
           aria-label={`View details for ${van.name}, 
                              priced at £${van.price} per day`}
@@ -33,6 +35,7 @@ function Vans() {
               type="image/webp"
             />
             <img
+              className="van-image"
               src={van.imageUrlPng}
               alt={`The ${van.name} van`}
               loading="lazy"
@@ -41,10 +44,13 @@ function Vans() {
             />
           </picture>
 
-          <ul>
+          <ul className="van-footer">
             <li>Price: £{van.price}/day</li>
-            <li>Type: {van.type}</li>
+            <li>
+              Type: <span className="van-type">{van.type}</span>
+            </li>
           </ul>
+          <FaCircleArrowRight aria-hidden="true" />
         </Link>
       </li>
     )

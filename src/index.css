@@ -10,13 +10,17 @@
 
   --bg: black;
   --fg: white;
+  --content-bg: rgb(44, 58, 58);
   background-color: var(--bg);
   color: var(--fg);
+  --shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.33);
+  --btn-blue: #405cf5;
 }
 
 .lightmode {
   --bg: white;
   --fg: black;
+  --content-bg: #f5f5f5;
   background-color: var(--bg);
   color: var(--fg);
 }
@@ -30,13 +34,17 @@ body {
 
 :focus-visible {
   outline: 0.2rem solid orange;
-  outline-offset: 1rem;
+  outline-offset: 0.2rem;
 }
 
 h1,
 h2,
 h3 {
   font-weight: normal;
+}
+p,
+ul {
+  font-size: clamp(1.6rem, 1.4783rem + 0.6957vw, 2rem);
 }
 
 h1,
@@ -67,10 +75,6 @@ button {
       opacity: 0.8;
     }
   }
-
-  /* &:hover {
-    opacity: 0.8;
-  } */
 }
 
 img {
@@ -91,7 +95,7 @@ img {
   & button {
     font-size: clamp(1.4rem, 1.3391rem + 0.3478vw, 1.6rem);
     font-family: inherit;
-    background: #405cf5;
+    background: var(--btn-blue);
     color: white;
     width: 2.5rem;
     height: 1.3rem;
@@ -204,29 +208,22 @@ img {
     border-style: solid;
     border-color: transparent;
     &.active {
-      border-color: #405cf5;
+      border-color: var(--btn-blue);
     }
   }
 }
 
-.van-list {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  grid-gap: 2rem;
-}
-
 /** Pages **/
-
 .link-button {
-  background-color: #405cf5;
+  background-color: var(--btn-blue);
   color: white;
   font-weight: 600;
   font-size: clamp(1.4rem, 1.2174rem + 1.0435vw, 2rem);
   padding: 1rem 2rem;
   border-radius: 0.75rem;
   text-decoration: none;
+  display: block;
+  width: fit-content;
 
   @media (hover: hover) {
     &:hover {
@@ -239,9 +236,14 @@ img {
   --_content-space-outside: 2rem;
 
   width: min(var(--_content-max-width), 100% - var(--_content-space-outside) * 2);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
   margin-inline: auto;
   padding: 2rem;
-  background-color: #ccc;
+  background-color: var(--content-bg);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
 }
 .home-container {
   display: grid;
@@ -261,14 +263,87 @@ img {
   & h1 {
     line-height: 1.3;
   }
+}
+
+.about-page-content {
+  display: grid;
+  gap: 3rem;
+  padding-block: 3rem;
+  & h1,
+  & h2,
+  & p {
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  & h1 {
+    line-height: 1.3;
+  }
 
   & p {
     font-size: clamp(1.6rem, 1.4783rem + 0.6957vw, 2rem);
   }
+
+  & .link-button {
+    width: fit-content;
+    margin-inline: auto;
+  }
+}
+
+/* Vans, VansDetail shared */
+.van-footer {
+  list-style: none;
+  padding-inline-start: 0;
+}
+.van-type {
+  text-transform: uppercase;
+}
+
+.van-image {
+  border-radius: 1rem;
+  border: 0.5rem solid white;
+}
+
+/* Vans */
+.vans-container {
+  background-color: transparent;
+  padding-inline: 0;
+  box-shadow: none;
+
+  & .van-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    grid-gap: 2rem;
+
+    & li {
+      a {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 2.5rem;
+        box-shadow: var(--shadow);
+      }
+
+      & p {
+        text-transform: uppercase;
+      }
+
+      & svg {
+        margin-inline-start: auto;
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+/* Vans Detail */
+.van-detail-container {
+  padding-block-end: 5rem;
 }
 
 /** Other **/
-
 .back-link {
   &::before {
     content: "\27F5 ";
