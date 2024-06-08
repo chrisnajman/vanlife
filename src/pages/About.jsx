@@ -8,6 +8,9 @@ function About() {
       <img
         src={bgImg}
         className="about-hero-image"
+        width="1365"
+        height="581"
+        alt="Man sitting on top of camper van, looking at the night sky"
       />
       <div className="about-page-content">
         <h1>Don{"'"}t squeeze in a sedan when you could relax in a van.</h1>
