@@ -58,7 +58,7 @@ function Vans() {
   return (
     <div className="vans-container  content-container">
       <h1>Explore our van options</h1>
-      <ul className="van-list">{vanList}</ul>
+      {vans ? <ul className="van-list">{vanList}</ul> : "Loading ..."}
     </div>
   )
 }
