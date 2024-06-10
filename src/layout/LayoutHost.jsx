@@ -7,7 +7,7 @@ function LayoutHost() {
         <ul>
           <li>
             <NavLink
-              to="host"
+              to="/host"
               aria-current="page"
               end
             >
@@ -16,7 +16,7 @@ function LayoutHost() {
           </li>
           <li>
             <NavLink
-              to="host/income"
+              to="income"
               aria-current="page"
               end
             >
@@ -25,7 +25,7 @@ function LayoutHost() {
           </li>
           <li>
             <NavLink
-              to="host/reviews"
+              to="reviews"
               aria-current="page"
               end
             >
