@@ -1,10 +1,4 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  // Navigate,
-  // useLocation,
-} from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Layout from "./layout/Layout"
 import Home from "./pages/Home"
 import About from "./pages/About"
@@ -17,21 +11,8 @@ import Income from "./pages/host/Income"
 import Reviews from "./pages/host/Reviews"
 
 function App() {
-  // function RedirectIfNoTrailingSlash() {
-  //   const location = useLocation()
-  //   if (location.pathname === "/vanlife") {
-  //     return (
-  //       <Navigate
-  //         to="/vanlife/"
-  //         replace
-  //       />
-  //     )
-  //   }
-  //   return null
-  // }
   return (
     <BrowserRouter basename="/vanlife">
-      {/* <RedirectIfNoTrailingSlash /> */}
       <Routes>
         <Route element={<Layout />}>
           <Route

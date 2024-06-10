@@ -168,7 +168,7 @@ img {
 .site-header {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.5rem;
   border-width: 0 0 2px 0;
 }
 
@@ -277,6 +277,9 @@ img {
 }
 
 .about-page-content {
+  background-color: transparent;
+  box-shadow: none;
+  color: white;
   display: grid;
   gap: 3rem;
   padding-block: 3rem;
@@ -299,6 +302,19 @@ img {
     width: fit-content;
     margin-inline: auto;
   }
+}
+
+.about-page-container {
+  background-color: transparent;
+  box-shadow: none;
+  color: white;
+}
+
+.main-content:has(.about-page-container) {
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.46), rgba(0, 0, 0, 0.46)),
+    url("./assets/images/about-hero.png") no-repeat center center;
+  background-size: cover;
 }
 
 /* Vans, VansDetail shared */
