@@ -15,14 +15,6 @@ function Nav() {
         </li>
         <li>
           <NavLink
-            to="host"
-            aria-current="page"
-          >
-            Host
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
             to="about"
             aria-current="page"
           >
@@ -35,6 +27,14 @@ function Nav() {
             aria-current="page"
           >
             Vans
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="host"
+            aria-current="page"
+          >
+            Host
           </NavLink>
         </li>
       </ul>

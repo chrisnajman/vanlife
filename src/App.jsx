@@ -9,6 +9,7 @@ import Layout from "./layout/Layout"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Vans from "./pages/vans/Vans"
+import FourOfour from "./pages/FourOfour"
 import VanDetails from "./pages/vans/VanDetails"
 import LayoutHost from "./layout/LayoutHost"
 import Dashboard from "./pages/host/Dashboard"
@@ -66,11 +67,11 @@ function App() {
               element={<Reviews />}
             />
           </Route>
+          <Route
+            path="*"
+            element={<FourOfour />}
+          />
         </Route>
-        <Route
-          path="*"
-          element={<div>404 Not Found</div>}
-        />
       </Routes>
     </BrowserRouter>
   )
