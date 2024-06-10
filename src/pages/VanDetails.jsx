@@ -54,6 +54,12 @@ function VanDetails() {
               Type: <span className="van-type">{van.type}</span>
             </li>
           </ul>
+          <Link
+            className="link-button cta"
+            to=""
+          >
+            Rent this van
+          </Link>
         </>
       ) : (
         <p>Loading ...</p>

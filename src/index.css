@@ -230,6 +230,12 @@ img {
       opacity: 0.8;
     }
   }
+
+  &.cta {
+    background-color: orangered;
+    width: 100%;
+    text-align: center;
+  }
 }
 .content-container {
   --_content-max-width: 72rem;
