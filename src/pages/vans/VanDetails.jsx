@@ -23,7 +23,7 @@ function VanDetails() {
     <div className="van-detail-container  content-container">
       <Link
         className="back-link link-button"
-        to="vans"
+        to="/vans"
       >
         {" "}
         Back to Vans list
