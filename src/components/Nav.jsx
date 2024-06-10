@@ -1,14 +1,12 @@
 import { NavLink } from "react-router-dom"
-import { UrlRoot } from "./UrlRoot"
 
 function Nav() {
   return (
     <nav className="site-navigation">
       <ul>
         <li>
-          {" "}
           <NavLink
-            to={`${UrlRoot}`}
+            to="/"
             aria-current="page"
             end
           >
@@ -17,7 +15,15 @@ function Nav() {
         </li>
         <li>
           <NavLink
-            to={`${UrlRoot}about`}
+            to="host"
+            aria-current="page"
+          >
+            Host
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="about"
             aria-current="page"
           >
             About
@@ -25,9 +31,8 @@ function Nav() {
         </li>
         <li>
           <NavLink
-            to={`${UrlRoot}vans`}
+            to="vans"
             aria-current="page"
-            end
           >
             Vans
           </NavLink>

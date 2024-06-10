@@ -1,32 +1,52 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { UrlRoot } from "./components/UrlRoot"
 import Layout from "./layout/Layout"
 import Home from "./pages/Home"
 import About from "./pages/About"
-import Vans from "./pages/Vans"
-import VanDetails from "./pages/VanDetails"
+import Vans from "./pages/vans/Vans"
+import VanDetails from "./pages/vans/VanDetails"
+import LayoutHost from "./layout/LayoutHost"
+import Dashboard from "./pages/host/Dashboard"
+import Income from "./pages/host/Income"
+import Reviews from "./pages/host/Reviews"
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/vanlife">
       <Routes>
         <Route element={<Layout />}>
           <Route
-            path={`${UrlRoot}`}
+            path="/"
             element={<Home />}
           />
           <Route
-            path={`${UrlRoot}about`}
+            path="about"
             element={<About />}
           />
           <Route
-            path={`${UrlRoot}vans`}
+            path="vans"
             element={<Vans />}
           />
           <Route
-            path={`${UrlRoot}vans/:id`}
+            path="vans/:id"
             element={<VanDetails />}
           />
+          <Route
+            path="host"
+            element={<LayoutHost />}
+          >
+            <Route
+              index
+              element={<Dashboard />}
+            />
+            <Route
+              path="income"
+              element={<Income />}
+            />
+            <Route
+              path="reviews"
+              element={<Reviews />}
+            />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

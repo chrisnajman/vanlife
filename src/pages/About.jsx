@@ -1,5 +1,4 @@
 import bgImg from "../assets/images/about-hero.png"
-import { UrlRoot } from "../components/UrlRoot"
 import { Link } from "react-router-dom"
 
 function About() {
@@ -30,7 +29,7 @@ function About() {
         </h2>
         <Link
           className="link-button"
-          to={`${UrlRoot}vans`}
+          to="/vans"
         >
           Explore our vans
         </Link>

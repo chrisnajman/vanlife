@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import { UrlRoot } from "../components/UrlRoot"
 import { Link } from "react-router-dom"
 import { FaCircleArrowRight } from "react-icons/fa6"
 
@@ -24,7 +23,7 @@ function Vans() {
       <li key={van.id}>
         <Link
           className="link-button"
-          to={`${UrlRoot}vans/${van.id}`}
+          to={van.id}
           aria-label={`View details for ${van.name}, 
                              priced at £${van.price} per day`}
         >

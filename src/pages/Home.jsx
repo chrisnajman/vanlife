@@ -1,4 +1,3 @@
-import { UrlRoot } from "../components/UrlRoot"
 import { Link } from "react-router-dom"
 
 function Home() {
@@ -12,7 +11,7 @@ function Home() {
         perfect van to make your perfect road trip.
       </p>
       <Link
-        to={`${UrlRoot}vans`}
+        to="vans"
         className="link-button"
       >
         Find your van

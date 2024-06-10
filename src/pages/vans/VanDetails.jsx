@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import { UrlRoot } from "../components/UrlRoot"
 import { useParams, Link } from "react-router-dom"
 
 function VanDetails() {
@@ -24,7 +23,7 @@ function VanDetails() {
     <div className="van-detail-container  content-container">
       <Link
         className="back-link link-button"
-        to={`${UrlRoot}vans`}
+        to="vans"
       >
         {" "}
         Back to Vans list
