@@ -351,6 +351,8 @@ img {
         gap: 2rem;
         padding: 2rem 2.5rem;
         box-shadow: var(--shadow);
+        background-color: var(--content-bg);
+        color: var(--fg);
       }
 
       & p {
@@ -359,7 +361,11 @@ img {
 
       & svg {
         margin-inline-start: auto;
-        font-size: 3rem;
+        font-size: 3.5rem;
+        fill: var(--btn-blue);
+        background-color: white;
+        border: 0.3rem solid white;
+        border-radius: 50%;
       }
     }
   }
@@ -401,6 +407,11 @@ img {
     height: auto;
     overflow: visible;
   }
+}
+
+/** Hosts */
+.hosts-nav {
+  margin-bottom: 3rem;
 }
 
 /* Screenreader only */

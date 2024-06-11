@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom"
 function LayoutHost() {
   return (
     <>
-      <nav className="site-navigation">
+      <nav className="site-navigation hosts-nav">
         <ul>
           <li>
             <NavLink
