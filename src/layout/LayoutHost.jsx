@@ -25,6 +25,14 @@ function LayoutHost() {
           </li>
           <li>
             <NavLink
+              to="host-vans"
+              aria-current="page"
+            >
+              Vans
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
               to="reviews"
               aria-current="page"
               end
