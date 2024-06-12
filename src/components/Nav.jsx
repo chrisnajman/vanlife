@@ -6,7 +6,7 @@ function Nav() {
       <ul>
         <li>
           <NavLink
-            to="/"
+            to="."
             aria-current="page"
             end
           >

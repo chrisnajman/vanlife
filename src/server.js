@@ -17,6 +17,7 @@ createServer({
       imageUrlWebp:
         "https://raw.githubusercontent.com/chrisnajman/vanlife-images/main/modest-explorer.webp",
       type: "simple",
+      hostId: "123",
     })
     server.create("van", {
       id: "2",
@@ -29,6 +30,7 @@ createServer({
       imageUrlWebp:
         "https://raw.githubusercontent.com/chrisnajman/vanlife-images/main/beach-bum.webp",
       type: "rugged",
+      hostId: "123",
     })
     server.create("van", {
       id: "3",
@@ -41,6 +43,7 @@ createServer({
       imageUrlWebp:
         "https://raw.githubusercontent.com/chrisnajman/vanlife-images/main/reliable-red.webp",
       type: "luxury",
+      hostId: "456",
     })
     server.create("van", {
       id: "4",
@@ -53,6 +56,7 @@ createServer({
       imageUrlWebp:
         "https://raw.githubusercontent.com/chrisnajman/vanlife-images/main/dreamfinder.webp",
       type: "simple",
+      hostId: "789",
     })
     server.create("van", {
       id: "5",
@@ -65,6 +69,7 @@ createServer({
       imageUrlWebp:
         "https://raw.githubusercontent.com/chrisnajman/vanlife-images/main/the-cruiser.webp",
       type: "luxury",
+      hostId: "789",
     })
     server.create("van", {
       id: "6",
@@ -77,6 +82,7 @@ createServer({
       imageUrlWebp:
         "https://raw.githubusercontent.com/chrisnajman/vanlife-images/main/green-wonder.webp",
       type: "rugged",
+      hostId: "123",
     })
   },
 
@@ -92,5 +98,30 @@ createServer({
       const id = request.params.id
       return schema.vans.find(id)
     })
+
+    // eslint-disable-next-line no-unused-vars
+    this.get("/host/host-vans", (schema, request) => {
+      return schema.vans.all()
+    })
+
+    this.get("/host/host-van/:id", (schema, request) => {
+      const id = request.params.id
+      return schema.vans.find(id)
+    })
+
+    /* 
+      Not required as I'm filtering HostVans.jsx based on hostId
+        this.get("/host/host-vans", (schema, request) => {
+          // Hard-code the hostId for now
+          return schema.vans.where({ hostId: "123" })
+        })
+
+        this.get("/host/host-van/:id", (schema, request) => {
+          // Hard-code the hostId for now
+          const id = request.params.id
+          return schema.vans.where({ id, hostId: "123" })
+        })
+
+    */
   },
 })

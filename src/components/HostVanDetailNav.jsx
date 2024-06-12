@@ -1,6 +1,6 @@
-import { NavLink, Outlet } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
-function LayoutHost() {
+function HostVanDetailNav() {
   return (
     <>
       <nav className="site-navigation hosts-nav">
@@ -11,38 +11,29 @@ function LayoutHost() {
               aria-current="page"
               end
             >
-              Dashboard
+              DetailsInfo
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="income"
+              to="pricing"
               aria-current="page"
             >
-              Income
+              Pricing
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="host-vans"
+              to="photos"
               aria-current="page"
             >
-              Vans
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="reviews"
-              aria-current="page"
-            >
-              Reviews
+              Photos
             </NavLink>
           </li>
         </ul>
       </nav>
-      {<Outlet />}
     </>
   )
 }
 
-export default LayoutHost
+export default HostVanDetailNav

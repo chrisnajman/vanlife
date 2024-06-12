@@ -23,9 +23,9 @@ function VanDetail() {
     <div className="van-detail-container  content-container">
       <Link
         className="back-link link-button"
-        to="/vans"
+        to=".."
+        relative="path"
       >
-        {" "}
         Back to Vans list
       </Link>
       {van ? (
