@@ -4,10 +4,18 @@ function HostVanInfo() {
   const { van } = useOutletContext()
   return (
     <section className="host-vans-section">
-      <div>Name: {van.name}</div>
-      <div>Category: {van.type}</div>
-      <div>Description: {van.description}</div>
-      <div>Visibility: Public</div>
+      <h2 className="visually-hidden">Details</h2>
+      <ul>
+        <li>
+          <span>Type</span>: <span className="van-type">{van.type}</span>
+        </li>
+        <li>
+          <span>Description</span>: <p>{van.description}</p>
+        </li>
+        <li>
+          <span>Visibility</span>: Public
+        </li>
+      </ul>
     </section>
   )
 }

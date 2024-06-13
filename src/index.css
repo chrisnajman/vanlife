@@ -15,6 +15,7 @@
   color: var(--fg);
   --shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.33);
   --btn-blue: #405cf5;
+  --host-nav-bg: var(--bg);
 }
 
 .lightmode {
@@ -23,6 +24,7 @@
   --content-bg: #f5f5f5;
   background-color: var(--bg);
   color: var(--fg);
+  --host-nav-bg: transparent;
 }
 
 body {
@@ -195,7 +197,10 @@ img {
   ul {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
+    width: fit-content;
+    margin-inline: auto;
     align-items: baseline;
     justify-content: center;
     padding-left: 0;
@@ -232,7 +237,6 @@ img {
   }
 
   &.cta {
-    background-color: orangered;
     width: 100%;
     text-align: center;
   }
@@ -318,12 +322,14 @@ img {
 }
 
 /* Vans, VansDetail shared */
-.van-footer {
-  list-style: none;
-  padding-inline-start: 0;
+.van-footer li {
+  margin-block-end: 1.5rem;
 }
 .van-type {
   text-transform: uppercase;
+  background-color: orangered;
+  color: white;
+  padding: 0.25rem 0.75rem 0.5rem;
 }
 
 .van-image {
@@ -331,41 +337,93 @@ img {
   border: 0.5rem solid white;
 }
 
-/* Vans */
-.vans-container {
+.list-container {
   background-color: transparent;
   padding-inline: 0;
   box-shadow: none;
 
-  & .van-list {
+  & ul {
     list-style: none;
     padding: 0;
     display: grid;
+    gap: 2rem;
+  }
+
+  & li {
+    a {
+      /* display: flex; */
+      gap: 2rem;
+      padding: 2rem 2.5rem;
+      box-shadow: var(--shadow);
+      background-color: var(--content-bg);
+      color: var(--fg);
+    }
+  }
+
+  & svg {
+    margin-inline-start: auto;
+    font-size: 3.5rem;
+    fill: var(--btn-blue);
+    background-color: white;
+    border: 0.3rem solid white;
+    border-radius: 50%;
+  }
+}
+
+.host-vans-container {
+  & li {
+    a {
+      display: grid;
+      grid-template-columns: minmax(15rem, 1fr) 3fr;
+
+      @media screen and (width < 480px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr;
+      }
+
+      & > div {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+      }
+    }
+  }
+}
+
+.host-vans-section {
+  & li {
+    margin-block-end: 1.5rem;
+
+    & span {
+      font-weight: 600;
+    }
+  }
+}
+
+.hosts-sub-nav ul {
+  padding: 2rem;
+  background-color: var(--host-nav-bg);
+  border-bottom: 0.2rem solid currentColor;
+}
+
+.host-thumbs {
+  display: grid;
+  grid-template-columns: minmax(15rem, 1fr) 3fr;
+}
+
+/* Vans */
+.vans-container {
+  & .van-list {
     grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
-    grid-gap: 2rem;
 
     & li {
       a {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
-        padding: 2rem 2.5rem;
-        box-shadow: var(--shadow);
-        background-color: var(--content-bg);
-        color: var(--fg);
       }
 
       & p {
         text-transform: uppercase;
-      }
-
-      & svg {
-        margin-inline-start: auto;
-        font-size: 3.5rem;
-        fill: var(--btn-blue);
-        background-color: white;
-        border: 0.3rem solid white;
-        border-radius: 50%;
       }
     }
   }
@@ -375,6 +433,8 @@ img {
 .van-detail-container {
   padding-block-end: 5rem;
 }
+
+/* Host vans list */
 
 /** Other **/
 .back-link {

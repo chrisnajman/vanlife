@@ -1,7 +1,7 @@
 function Dashboard() {
   return (
     <div className="hosts-container  content-container hosts-dashboard">
-      <h1>Dashboard Updated</h1>
+      <h1>Dashboard</h1>
     </div>
   )
 }

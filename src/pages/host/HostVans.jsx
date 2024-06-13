@@ -31,7 +31,6 @@ function HostVans() {
             aria-label={`View details for ${van.name}, 
                              priced at £${van.price} per day`}
           >
-            <p>{van.name}</p>
             <picture>
               <source
                 srcSet={van.imageUrlWebp}
@@ -46,20 +45,19 @@ function HostVans() {
                 height="881"
               />
             </picture>
-
-            <ul className="van-footer">
-              <li>Price: £{van.price}/day</li>
-              {/* <li>
-                Type: <span className="van-type">{van.type}</span>
-              </li> */}
-            </ul>
-            <FaCircleArrowRight aria-hidden="true" />
+            <div>
+              <p>{van.name}</p>
+              <ul className="van-footer">
+                <li>Price: £{van.price}/day</li>
+              </ul>
+              <FaCircleArrowRight aria-hidden="true" />
+            </div>
           </Link>
         </li>
       )
     })
   return (
-    <div className="hosts-container  content-container host-vans vans-container">
+    <div className="hosts-container  content-container host-vans-container list-container">
       <h1>Your Listed Vans</h1>
       {vans.length > 0 ? (
         <ul className="van-list">{vanList}</ul>

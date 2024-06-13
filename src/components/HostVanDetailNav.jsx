@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom"
 function HostVanDetailNav() {
   return (
     <>
-      <nav className="site-navigation hosts-nav">
+      <nav className="site-navigation hosts-nav hosts-sub-nav">
         <ul>
           <li>
             <NavLink
@@ -11,7 +11,7 @@ function HostVanDetailNav() {
               aria-current="page"
               end
             >
-              DetailsInfo
+              Details
             </NavLink>
           </li>
           <li>

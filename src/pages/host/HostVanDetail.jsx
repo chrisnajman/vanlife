@@ -30,31 +30,22 @@ function HostVanDetail() {
       </Link>
       {van ? (
         <>
-          <div className="top-wrap">
-            <div>
-              <picture>
-                <source
-                  srcSet={van.imageUrlWebp}
-                  type="image/webp"
-                />
-                <img
-                  className="van-image"
-                  src={van.imageUrlPng}
-                  alt={`The ${van.name} van`}
-                  loading="lazy"
-                  width="881"
-                  height="881"
-                />
-              </picture>
-            </div>
-            <div>
-              <p>{van.type}</p>
-              <h1>{van.name}</h1>
-              <p>&pound;{van.price}/day</p>
-            </div>
-
-            <HostVanDetailNav />
-          </div>
+          <picture>
+            <source
+              srcSet={van.imageUrlWebp}
+              type="image/webp"
+            />
+            <img
+              className="van-image"
+              src={van.imageUrlPng}
+              alt={`The ${van.name} van`}
+              loading="lazy"
+              width="881"
+              height="881"
+            />
+          </picture>
+          <h1>{van.name}</h1>
+          <HostVanDetailNav />
           {<Outlet context={{ van }} />}
         </>
       ) : (

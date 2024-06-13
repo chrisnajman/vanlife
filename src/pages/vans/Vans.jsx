@@ -55,7 +55,7 @@ function Vans() {
     )
   })
   return (
-    <div className="vans-container  content-container">
+    <div className="vans-container  list-container content-container">
       <h1>Explore our van options</h1>
       {vans.length > 0 ? (
         <ul className="van-list">{vanList}</ul>
