@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react"
-import { useParams, Link } from "react-router-dom"
+import { useParams, useLocation, Link } from "react-router-dom"
+import { FaCircleArrowLeft } from "react-icons/fa6"
 
 function VanDetail() {
   const params = useParams()
+  const location = useLocation()
 
   const [van, setVan] = useState(null)
 
@@ -19,18 +21,41 @@ function VanDetail() {
     getVan()
   }, [params.id])
 
+  const search = location.state?.search || ""
+  const type = location.state?.type
+
   return (
     <div className="van-detail-container  content-container">
-      <Link
-        className="back-link link-button"
-        to=".."
-        relative="path"
-      >
-        Back to Vans list
-      </Link>
+      <div className="back-links">
+        {type && (
+          <>
+            <Link
+              className="back-link"
+              to={`..${search}`}
+              relative="path"
+            >
+              <FaCircleArrowLeft />{" "}
+              <span>
+                <span className="visually-hidden">Back to </span>
+                all {type} vans
+              </span>
+            </Link>
+          </>
+        )}
+        <Link
+          className="back-link"
+          to=".."
+          relative="path"
+        >
+          <FaCircleArrowLeft />
+          <span>
+            <span className="visually-hidden">Back to </span>all vans
+          </span>
+        </Link>
+      </div>
       {van ? (
         <>
-          <h1>{van.name}: Details</h1>
+          <h1>{van.name}</h1>
           <picture>
             <source
               srcSet={van.imageUrlWebp}
@@ -48,9 +73,12 @@ function VanDetail() {
           <p>{van.description}</p>
 
           <ul className="van-footer">
-            <li>Price: £{van.price}/day</li>
             <li>
-              Type: <span className="van-type">{van.type}</span>
+              <span className="visually-hidden">Price: </span>£{van.price}/day
+            </li>
+            <li>
+              <span className="visually-hidden">Type: </span>
+              <span className={`van-type ${van.type}`}>{van.type}</span>
             </li>
           </ul>
           <Link

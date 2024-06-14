@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams, Link, Outlet } from "react-router-dom"
+import { FaCircleArrowLeft } from "react-icons/fa6"
 import HostVanDetailNav from "../../components/HostVanDetailNav"
 
 function HostVanDetail() {
@@ -21,13 +22,19 @@ function HostVanDetail() {
   }, [params.id])
   return (
     <div className="hosts-container  content-container host-van-detail van-detail-container">
-      <Link
-        className="back-link link-button"
-        to=".."
-        relative="path"
-      >
-        Back to Host Vans list
-      </Link>
+      <div className="back-links">
+        <Link
+          className="back-link"
+          to=".."
+          relative="path"
+        >
+          <FaCircleArrowLeft />
+          <span>
+            <span className="visually-hidden">Back to </span>Host Vans list
+          </span>
+        </Link>
+      </div>
+
       {van ? (
         <>
           <picture>

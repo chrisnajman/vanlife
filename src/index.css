@@ -7,6 +7,9 @@
 :root {
   font-size: 10px;
   overflow-y: scroll;
+  --simple: orangered;
+  --luxury: purple;
+  --rugged: rgb(1, 99, 1);
 
   --bg: black;
   --fg: white;
@@ -327,9 +330,18 @@ img {
 }
 .van-type {
   text-transform: uppercase;
-  background-color: orangered;
   color: white;
   padding: 0.25rem 0.75rem 0.5rem;
+
+  &.simple {
+    background-color: var(--simple);
+  }
+  &.luxury {
+    background-color: var(--luxury);
+  }
+  &.rugged {
+    background-color: var(--rugged);
+  }
 }
 
 .van-image {
@@ -362,7 +374,7 @@ img {
 
   & svg {
     margin-inline-start: auto;
-    font-size: 3.5rem;
+    font-size: 5rem;
     fill: var(--btn-blue);
     background-color: white;
     border: 0.3rem solid white;
@@ -429,6 +441,67 @@ img {
   }
 }
 
+/* Van filters */
+.van-list-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  font-size: clamp(1.6rem, 1.4783rem + 0.6957vw, 2rem);
+
+  & button {
+    font-size: inherit;
+  }
+
+  & button {
+    padding: 0.25rem 0.75rem 0.5rem;
+    border-width: 0 0 0.5rem 0;
+    border-style: solid;
+
+    &.selected {
+      color: white;
+    }
+
+    &.simple {
+      border-color: var(--simple);
+      &.selected {
+        background-color: var(--simple);
+        border-color: var(--fg);
+      }
+    }
+    &.luxury {
+      border-color: var(--luxury);
+      &.selected {
+        background-color: var(--luxury);
+        border-color: var(--fg);
+      }
+    }
+    &.rugged {
+      border-color: var(--rugged);
+      &.selected {
+        background-color: var(--rugged);
+        border-color: var(--fg);
+      }
+    }
+
+    &:not(.clear-filters) {
+      text-transform: uppercase;
+      font-weight: 600;
+      border-radius: 0.5rem 0.5rem 0 0;
+    }
+  }
+
+  & .clear-filters {
+    margin-inline-start: auto;
+    border-color: currentColor;
+
+    &[disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+
 /* Vans Detail */
 .van-detail-container {
   padding-block-end: 5rem;
@@ -436,10 +509,36 @@ img {
 
 /* Host vans list */
 
-/** Other **/
+/** Back links **/
+.back-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2.5rem;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
 .back-link {
-  &::before {
-    content: "\27F5 ";
+  text-decoration: none;
+  text-transform: capitalize;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: var(--fg);
+
+  & svg {
+    font-size: 3rem;
+    fill: var(--btn-blue);
+    background-color: white;
+    border: 0.3rem solid white;
+    border-radius: 50%;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.8;
+    }
   }
 }
 
