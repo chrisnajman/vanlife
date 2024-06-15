@@ -24,10 +24,3 @@ function Layout() {
 }
 
 export default Layout
-
-/*
-      <div className="site-container">
-        <Header title="Vanlife" />
-
-
-*/

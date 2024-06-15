@@ -17,11 +17,11 @@ import PageNotFound from "./pages/PageNotFound"
 
 function App() {
   return (
-    <BrowserRouter basename="/vanlife">
+    <BrowserRouter basename="/vanlife/">
       <Routes>
         <Route element={<Layout />}>
           <Route
-            path="/"
+            index
             element={<Home />}
           />
           <Route
