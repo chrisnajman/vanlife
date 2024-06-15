@@ -72,7 +72,7 @@ function VanDetail() {
           </picture>
           <p>{van.description}</p>
 
-          <ul className="van-footer">
+          <ul className="van-footer text-list">
             <li>
               <span className="visually-hidden">Price: </span>£{van.price}/day
             </li>

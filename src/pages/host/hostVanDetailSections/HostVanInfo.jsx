@@ -5,7 +5,7 @@ function HostVanInfo() {
   return (
     <section className="host-vans-section">
       <h2 className="visually-hidden">Details</h2>
-      <ul>
+      <ul className="text-list">
         <li>
           <span>Type</span>:{" "}
           <span className={`van-type ${van.type}`}>{van.type}</span>
