@@ -3,7 +3,6 @@ import Layout from "./layout/Layout"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Vans from "./pages/vans/Vans"
-import FourOfour from "./pages/FourOfour"
 import VanDetail from "./pages/vans/VanDetail"
 import LayoutHost from "./layout/LayoutHost"
 import Dashboard from "./pages/host/Dashboard"
@@ -14,6 +13,7 @@ import HostVanDetail from "./pages/host/HostVanDetail"
 import HostVanInfo from "./pages/host/hostVanDetailSections/HostVanInfo"
 import HostVanPricing from "./pages/host/hostVanDetailSections/HostVanPricing"
 import HostVanPhotos from "./pages/host/hostVanDetailSections/HostVanPhotos"
+import PageNotFound from "./pages/PageNotFound"
 
 function App() {
   return (
@@ -76,7 +76,7 @@ function App() {
           </Route>
           <Route
             path="*"
-            element={<FourOfour />}
+            element={<PageNotFound />}
           />
         </Route>
       </Routes>

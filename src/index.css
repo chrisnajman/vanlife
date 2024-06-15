@@ -573,6 +573,31 @@ img {
   margin-bottom: 3rem;
 }
 
+/** 404 (Page not Found) */
+.content-container.page-not-found-container {
+  background-color: var(--bg);
+  border-radius: 0;
+  box-shadow: none;
+}
+.page-not-found-container {
+  gap: 10rem;
+  padding-block-end: 5rem;
+  & a {
+    margin-inline: auto;
+    font-size: clamp(1.6rem, 1.1739rem + 2.4348vw, 3rem);
+    padding-block: 2rem;
+    padding-inline: clamp(1rem, 0.3913rem + 3.4783vw, 3rem);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    background-color: var(--btn-blue);
+    color: white;
+
+    & svg {
+      min-width: 3rem;
+    }
+  }
+}
+
 /* Screenreader only */
 .visually-hidden {
   position: absolute;
