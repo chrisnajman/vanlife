@@ -48,7 +48,10 @@ function HostVans() {
             <div>
               <p>{van.name}</p>
               <ul className="van-footer">
-                <li>Price: £{van.price}/day</li>
+                <li>
+                  <span className="visually-hidden">Price: </span>£{van.price}
+                  /day
+                </li>
               </ul>
               <FaCircleArrowRight aria-hidden="true" />
             </div>

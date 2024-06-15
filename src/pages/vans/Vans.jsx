@@ -55,7 +55,9 @@ function Vans() {
           </picture>
 
           <ul className="van-footer">
-            <li>Price: £{van.price}/day</li>
+            <li>
+              <span className="visually-hidden">Price: </span>£{van.price}/day
+            </li>
             <li>
               <span className="visually-hidden">Type: </span>
               <span className={`van-type ${van.type}`}>{van.type}</span>
