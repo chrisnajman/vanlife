@@ -7,7 +7,7 @@ function Home() {
         You{"'"}ve got the travel plans, we{"'"}ve got the travel vans.
       </h1>
       <p>
-        Add adventure to your life by joining the #vanlife movement. Rent the
+        Add adventure to your life by joining the VanLife movement. Rent the
         perfect van to make your perfect road trip.
       </p>
       <Link

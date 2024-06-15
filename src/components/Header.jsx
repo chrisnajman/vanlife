@@ -6,7 +6,7 @@ function Header({ title }) {
   return (
     <header className="site-header">
       <p className="site-header--h1">
-        <FaVanShuttle /> <span>#{title}</span>
+        <FaVanShuttle /> <span>{title}</span>
       </p>
       <Nav />
     </header>

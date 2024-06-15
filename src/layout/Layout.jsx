@@ -10,7 +10,7 @@ function Layout() {
       <SkipLink />
       <BtnTheme />
       <div className="site-container">
-        <Header title="Vanlife" />
+        <Header title="VanLife" />
         <main
           id="main-content"
           className="main-content"

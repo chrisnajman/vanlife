@@ -250,6 +250,7 @@ img {
   &.cta {
     width: 100%;
     text-align: center;
+    cursor: not-allowed;
   }
 }
 .content-container {
