@@ -1,14 +1,22 @@
-import { Link, useLoaderData } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import { FaCircleArrowRight } from "react-icons/fa6"
-import { getHostVans } from "../../api.js"
-
-// eslint-disable-next-line react-refresh/only-export-components
-export function loader() {
-  return getHostVans()
-}
 
 function HostVans() {
-  const vans = useLoaderData()
+  const [vans, setVans] = useState([])
+
+  useEffect(() => {
+    async function getVans() {
+      try {
+        const res = await fetch("/api/vans")
+        const vansData = await res.json()
+        setVans(vansData.vans)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getVans()
+  }, [])
 
   // hostId 123 or 456 or 789
   const hostVanId = "123"
@@ -54,7 +62,11 @@ function HostVans() {
   return (
     <div className="hosts-container  content-container host-vans-container list-container">
       <h1>Your Listed Vans</h1>
-      <ul className="van-list">{vanList}</ul>
+      {vans.length > 0 ? (
+        <ul className="van-list">{vanList}</ul>
+      ) : (
+        <h2>Loading ...</h2>
+      )}
     </div>
   )
 }

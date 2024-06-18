@@ -1,25 +1,15 @@
-import { useState, useEffect } from "react"
-import { useParams, useLocation, Link } from "react-router-dom"
+import { useLocation, Link, useLoaderData } from "react-router-dom"
 import { FaCircleArrowLeft } from "react-icons/fa6"
+import { getVans } from "../../api.js"
+
+// eslint-disable-next-line react-refresh/only-export-components
+export function loader({ params }) {
+  return getVans(params.id)
+}
 
 function VanDetail() {
-  const params = useParams()
   const location = useLocation()
-
-  const [van, setVan] = useState(null)
-
-  useEffect(() => {
-    async function getVan() {
-      try {
-        const res = await fetch(`/api/vans/${params.id}`)
-        const vanData = await res.json()
-        setVan(vanData.vans)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getVan()
-  }, [params.id])
+  const van = useLoaderData()
 
   const search = location.state?.search || ""
   const type = location.state?.type
@@ -53,44 +43,40 @@ function VanDetail() {
           </span>
         </Link>
       </div>
-      {van ? (
-        <>
-          <h1>{van.name}</h1>
-          <picture>
-            <source
-              srcSet={van.imageUrlWebp}
-              type="image/webp"
-            />
-            <img
-              className="van-image"
-              src={van.imageUrlPng}
-              alt={`The ${van.name} van`}
-              loading="lazy"
-              width="881"
-              height="881"
-            />
-          </picture>
-          <p>{van.description}</p>
+      <>
+        <h1>{van.name}</h1>
+        <picture>
+          <source
+            srcSet={van.imageUrlWebp}
+            type="image/webp"
+          />
+          <img
+            className="van-image"
+            src={van.imageUrlPng}
+            alt={`The ${van.name} van`}
+            loading="lazy"
+            width="881"
+            height="881"
+          />
+        </picture>
+        <p>{van.description}</p>
 
-          <ul className="van-footer text-list">
-            <li>
-              <span className="visually-hidden">Price: </span>£{van.price}/day
-            </li>
-            <li>
-              <span className="visually-hidden">Type: </span>
-              <span className={`van-type ${van.type}`}>{van.type}</span>
-            </li>
-          </ul>
-          <Link
-            className="link-button cta"
-            to=""
-          >
-            Rent this van
-          </Link>
-        </>
-      ) : (
-        <p>Loading ...</p>
-      )}
+        <ul className="van-footer text-list">
+          <li>
+            <span className="visually-hidden">Price: </span>£{van.price}/day
+          </li>
+          <li>
+            <span className="visually-hidden">Type: </span>
+            <span className={`van-type ${van.type}`}>{van.type}</span>
+          </li>
+        </ul>
+        <Link
+          className="link-button cta"
+          to=""
+        >
+          Rent this van
+        </Link>
+      </>
     </div>
   )
 }

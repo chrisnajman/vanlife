@@ -1,18 +1,25 @@
-import { Link, useSearchParams, useLoaderData } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { Link, useSearchParams } from "react-router-dom"
 import { FaCircleArrowRight } from "react-icons/fa6"
-import { getVans } from "../../api.js"
-
-// eslint-disable-next-line react-refresh/only-export-components
-export function loader() {
-  return getVans()
-}
 
 function Vans() {
   const [searchParams, setSearchParams] = useSearchParams()
+  const [vans, setVans] = useState([])
 
   const typeFilter = searchParams.get("type")
 
-  const vans = useLoaderData()
+  useEffect(() => {
+    async function getVans() {
+      try {
+        const res = await fetch("/api/vans")
+        const vansData = await res.json()
+        setVans(vansData.vans)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getVans()
+  }, [])
 
   const displayedVans = typeFilter
     ? vans.filter((van) => van.type === typeFilter)
@@ -108,7 +115,11 @@ function Vans() {
           Clear filter
         </button>
       </form>
-      <ul className="van-list">{vanList}</ul>
+      {vans.length > 0 ? (
+        <ul className="van-list">{vanList}</ul>
+      ) : (
+        <h2>Loading ...</h2>
+      )}
     </div>
   )
 }
