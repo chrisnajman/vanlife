@@ -7,7 +7,7 @@ function HostVanPricing() {
       <h2 className="visually-hidden">Prices</h2>
       <ul>
         <li>
-          <p>&pound;{van.price}/day</p>
+          <p>&#36;{van.price}/day</p>
         </li>
       </ul>
     </section>
