@@ -5,6 +5,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom"
 import Layout from "./layout/Layout"
+import Login from "./pages/Login"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Vans, { loader as vansLoader } from "./pages/vans/Vans"
@@ -31,6 +32,10 @@ const router = createBrowserRouter(
       <Route
         index
         element={<Home />}
+      />
+      <Route
+        path="login"
+        element={<Login />}
       />
       <Route
         path="about"

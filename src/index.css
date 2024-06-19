@@ -221,11 +221,20 @@ img {
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-    width: fit-content;
     margin-inline: auto;
-    align-items: baseline;
+    align-items: center;
     justify-content: center;
     padding-left: 0;
+    position: relative;
+
+    & li:last-child {
+      position: absolute;
+      right: 0;
+
+      @media screen and (width < 50rem) {
+        position: static;
+      }
+    }
   }
 
   & a {
@@ -645,6 +654,42 @@ img {
     & svg {
       min-width: 3rem;
     }
+  }
+}
+
+/** Login */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 0 2rem 3rem;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  & .login-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  & input {
+    padding: 0.5rem;
+    color: var(--fg);
+    background-color: var(--bg);
+    border: 0.1rem solid var(--fg);
+
+    &::placeholder {
+      color: inherit;
+      opacity: 0.8;
+    }
+  }
+
+  & button {
+    margin-inline-start: auto;
   }
 }
 

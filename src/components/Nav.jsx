@@ -37,6 +37,14 @@ function Nav() {
             Host
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="login"
+            aria-current="page"
+          >
+            Login
+          </NavLink>
+        </li>
       </ul>
     </nav>
   )
