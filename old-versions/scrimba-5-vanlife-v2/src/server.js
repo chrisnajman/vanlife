@@ -89,7 +89,6 @@ createServer({
   routes() {
     // changed from "/api":
     this.namespace = "/vanlife/api"
-    this.logging = false
 
     // eslint-disable-next-line no-unused-vars
     this.get("/vans", (schema, request) => {

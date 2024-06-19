@@ -87,14 +87,10 @@ createServer({
   },
 
   routes() {
-    // changed from "/api":
-    this.namespace = "/vanlife/api"
-    this.logging = false
+    this.namespace = "api"
 
     // eslint-disable-next-line no-unused-vars
     this.get("/vans", (schema, request) => {
-      /* Test error handling by uncommenting: */
-      // return new Response(400, {}, { error: "Error fetching data" })
       return schema.vans.all()
     })
 
@@ -108,9 +104,24 @@ createServer({
       return schema.vans.all()
     })
 
-    this.get("/host/host-vans/:id", (schema, request) => {
+    this.get("/host/host-van/:id", (schema, request) => {
       const id = request.params.id
       return schema.vans.find(id)
     })
+
+    /* 
+      Not required as I'm filtering HostVans.jsx based on hostId
+        this.get("/host/host-vans", (schema, request) => {
+          // Hard-code the hostId for now
+          return schema.vans.where({ hostId: "123" })
+        })
+
+        this.get("/host/host-van/:id", (schema, request) => {
+          // Hard-code the hostId for now
+          const id = request.params.id
+          return schema.vans.where({ id, hostId: "123" })
+        })
+
+    */
   },
 })
