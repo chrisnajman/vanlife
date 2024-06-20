@@ -227,7 +227,7 @@ img {
     padding-left: 0;
     position: relative;
 
-    & li:last-child {
+    & .login {
       position: absolute;
       right: 0;
 

@@ -37,7 +37,7 @@ function Nav() {
             Host
           </NavLink>
         </li>
-        <li>
+        <li className="login">
           <NavLink
             to="login"
             aria-current="page"
