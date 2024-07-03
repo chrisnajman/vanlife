@@ -7,7 +7,7 @@ function PageNotFound() {
       <h1>Page Not Found</h1>
       <Link
         to="/"
-        className="back-link"
+        className="back-link arrow"
       >
         <FaCircleArrowLeft />
         <span>Back to the home page</span>

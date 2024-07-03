@@ -5,7 +5,7 @@ function HostVanPricing() {
   return (
     <section className="host-vans-section">
       <h2 className="visually-hidden">Prices</h2>
-      <ul>
+      <ul className="text-list">
         <li>
           <p>&#36;{van.price}/day</p>
         </li>

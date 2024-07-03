@@ -1,8 +1,9 @@
-import { createServer, Model } from "miragejs"
+import { createServer, Model, Response } from "miragejs"
 
 createServer({
   models: {
     vans: Model,
+    users: Model,
   },
 
   seeds(server) {
@@ -84,6 +85,12 @@ createServer({
       type: "rugged",
       hostId: "123",
     })
+    server.create("user", {
+      id: "123",
+      email: "c@n.com",
+      password: "p123",
+      name: "Bob",
+    })
   },
 
   routes() {
@@ -104,13 +111,44 @@ createServer({
     })
 
     // eslint-disable-next-line no-unused-vars
+    this.get("/host", (schema, request) => {
+      return schema.vans.all()
+      // Hard-code the hostId for now
+      // return schema.vans.where({ hostId: "123" })
+    })
+
+    // eslint-disable-next-line no-unused-vars
     this.get("/host/host-vans", (schema, request) => {
       return schema.vans.all()
+      // Hard-code the hostId for now
+      // return schema.vans.where({ hostId: "123" })
     })
 
     this.get("/host/host-vans/:id", (schema, request) => {
       const id = request.params.id
       return schema.vans.find(id)
+      // return schema.vans.findBy({ id, hostId: "123" })
+    })
+
+    this.post("/login", (schema, request) => {
+      const { email, password } = JSON.parse(request.requestBody)
+      const foundUser = schema.users.findBy({ email, password })
+
+      if (!foundUser) {
+        const response = new Response(
+          401,
+          {},
+          { message: "No user with those credentials found..?" }
+        )
+        return response
+      }
+
+      foundUser.password = undefined
+      const response = {
+        user: foundUser,
+        token: "Token string.",
+      }
+      return response
     })
   },
 })

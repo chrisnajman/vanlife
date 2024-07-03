@@ -1,33 +1,22 @@
-import {} from "react"
-import { Link, Outlet, useLoaderData } from "react-router-dom"
+import { Suspense } from "react"
+import { Link, Outlet, useLoaderData, defer, Await } from "react-router-dom"
 import { FaCircleArrowLeft } from "react-icons/fa6"
 import HostVanDetailNav from "../../components/HostVanDetailNav"
-
-import { getHostVans } from "../../api.js"
+import { requireAuth } from "../../utils/require-auth"
+import { getHostVans } from "../../api"
+import Loading from "../../components/Loading"
 
 // eslint-disable-next-line react-refresh/only-export-components
-export function loader({ params }) {
-  return getHostVans(params.id)
+export async function loader({ params, request }) {
+  await requireAuth(request)
+  return defer({ vans: getHostVans(params.id) })
 }
 
 function HostVanDetail() {
-  const van = useLoaderData()
+  const dataPromise = useLoaderData()
 
-  return (
-    <div className="hosts-container  content-container host-van-detail van-detail-container">
-      <div className="back-links">
-        <Link
-          className="back-link"
-          to=".."
-          relative="path"
-        >
-          <FaCircleArrowLeft />
-          <span>
-            <span className="visually-hidden">Back to </span>Host Vans list
-          </span>
-        </Link>
-      </div>
-
+  function renderHostVanDetail(van) {
+    return (
       <>
         <picture>
           <source
@@ -47,6 +36,27 @@ function HostVanDetail() {
         <HostVanDetailNav />
         {<Outlet context={{ van }} />}
       </>
+    )
+  }
+
+  return (
+    <div className="hosts-container  content-container host-van-detail van-detail-container">
+      <div className="back-links">
+        <Link
+          className="back-link arrow"
+          to=".."
+          relative="path"
+        >
+          <FaCircleArrowLeft />
+          <span>
+            <span className="visually-hidden">Back to </span>Host Vans list
+          </span>
+        </Link>
+      </div>
+
+      <Suspense fallback={<Loading title="van" />}>
+        <Await resolve={dataPromise.vans}>{renderHostVanDetail}</Await>
+      </Suspense>
     </div>
   )
 }

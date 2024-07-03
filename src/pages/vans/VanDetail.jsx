@@ -1,48 +1,29 @@
-import { useLocation, Link, useLoaderData } from "react-router-dom"
+import { Suspense } from "react"
+import {
+  useLocation,
+  Link,
+  useLoaderData,
+  defer,
+  Await,
+} from "react-router-dom"
 import { FaCircleArrowLeft } from "react-icons/fa6"
-import { getVans } from "../../api.js"
+import { getVans } from "../../api"
+import Loading from "../../components/Loading"
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function loader({ params }) {
-  return getVans(params.id)
+  return defer({ vans: getVans(params.id) })
 }
 
 function VanDetail() {
   const location = useLocation()
-  const van = useLoaderData()
+  const dataPromise = useLoaderData()
 
   const search = location.state?.search || ""
   const type = location.state?.type
 
-  return (
-    <div className="van-detail-container  content-container">
-      <div className="back-links">
-        {type && (
-          <>
-            <Link
-              className="back-link"
-              to={`..${search}`}
-              relative="path"
-            >
-              <FaCircleArrowLeft />{" "}
-              <span>
-                <span className="visually-hidden">Back to </span>
-                all {type} vans
-              </span>
-            </Link>
-          </>
-        )}
-        <Link
-          className="back-link"
-          to=".."
-          relative="path"
-        >
-          <FaCircleArrowLeft />
-          <span>
-            <span className="visually-hidden">Back to </span>all vans
-          </span>
-        </Link>
-      </div>
+  function renderVanDetail(van) {
+    return (
       <>
         <h1>{van.name}</h1>
         <picture>
@@ -63,20 +44,50 @@ function VanDetail() {
 
         <ul className="van-footer text-list">
           <li>
-            <span className="visually-hidden">Price: </span>£{van.price}/day
+            <span className="visually-hidden">Price: </span>${van.price}/day
           </li>
           <li>
             <span className="visually-hidden">Type: </span>
             <span className={`van-type ${van.type}`}>{van.type}</span>
           </li>
         </ul>
-        <Link
-          className="link-button cta"
-          to=""
-        >
-          Rent this van
-        </Link>
       </>
+    )
+  }
+
+  return (
+    <div className="van-detail-container  content-container">
+      <div className="back-links">
+        {type && (
+          <>
+            <Link
+              className="back-link arrow"
+              to={`..${search}`}
+              relative="path"
+            >
+              <FaCircleArrowLeft />{" "}
+              <span>
+                <span className="visually-hidden">Back to </span>
+                all {type} vans
+              </span>
+            </Link>
+          </>
+        )}
+        <Link
+          className="back-link arrow"
+          to=".."
+          relative="path"
+        >
+          <FaCircleArrowLeft />
+          <span>
+            <span className="visually-hidden">Back to </span>all vans
+          </span>
+        </Link>
+      </div>
+
+      <Suspense fallback={<Loading title="van" />}>
+        <Await resolve={dataPromise.vans}>{renderVanDetail}</Await>
+      </Suspense>
     </div>
   )
 }

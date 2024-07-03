@@ -66,10 +66,10 @@ function Login() {
 
   return (
     <div className="login-container content-container">
-      <h1>Log in to your host account</h1>
+      <h1>Log in to your account</h1>
       <details
         id="details"
-        className="login-details"
+        className="details"
         onClick={toggleAria}
       >
         <summary
@@ -78,30 +78,22 @@ function Login() {
           className="summary"
           aria-expanded="false"
         >
-          <span
-            id="summary-status"
-            className="visually-hidden"
-          >
-            Open
-          </span>{" "}
-          Login details
+          <span id="summary-status">Open</span> Login details
         </summary>
-        <div className="details">
+        <div className="info-content flow">
           <ul>
-            <li>
-              Email: <span>c@n.com</span>
-            </li>
-            <li>
-              Password: <span>p123</span>
-            </li>
+            <li>Email: c@n.com</li>
+            <li>Password: p123</li>
           </ul>
-          <button
-            onClick={closeDetails}
-            type="button"
-            className="link-button"
-          >
-            Close
-          </button>
+
+          <div className="close-button">
+            <button
+              onClick={closeDetails}
+              type="button"
+            >
+              Close
+            </button>
+          </div>
         </div>
       </details>
       <ul className="error-messages">
