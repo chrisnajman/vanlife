@@ -37,7 +37,7 @@ function toggleAria() {
   const summary = document.getElementById("summary")
   const summaryStatus = document.getElementById("summary-status")
 
-  // Using a timeout to allow the `details.open` property to update
+  // Allow the `details.open` property to update
   setTimeout(() => {
     if (details.open) {
       summary.setAttribute("aria-expanded", "true")
