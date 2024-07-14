@@ -29,38 +29,70 @@ import Error from "./components/Error"
 import { requireAuth } from "./utils/require-auth"
 import "./server"
 
+import PageTitle from "./components/PageTitle"
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Layout />}>
       <Route
         index
-        element={<Home />}
+        element={
+          <>
+            <PageTitle title="VanLife Home" />
+            <Home />
+          </>
+        }
       />
       <Route
         path="login"
-        element={<Login />}
+        element={
+          <>
+            <PageTitle title="Login" />
+            <Login />
+          </>
+        }
         loader={loginLoader}
         action={loginAction}
       />
       <Route
         path="about"
-        element={<About />}
+        element={
+          <>
+            <PageTitle title="About VanLife" />
+            <About />
+          </>
+        }
       />
       <Route
         path="vans"
-        element={<Vans />}
+        element={
+          <>
+            <PageTitle title="List of vans for hire" />
+            <Vans />
+          </>
+        }
         loader={vansLoader}
         errorElement={<Error />}
       />
       <Route
         path="vans/:id"
-        element={<VanDetail />}
+        element={
+          <>
+            <PageTitle title="Van details" />
+            <VanDetail />
+          </>
+        }
         loader={vanDetailLoader}
         errorElement={<Error />}
       />
       <Route
         path="host"
-        element={<LayoutHost />}
+        element={
+          <>
+            <PageTitle title="Host dashboard" />
+            <LayoutHost />
+          </>
+        }
       >
         {/* Begin protected routes */}
         <Route
@@ -71,47 +103,87 @@ const router = createBrowserRouter(
         />
         <Route
           path="income"
-          element={<Income />}
+          element={
+            <>
+              <PageTitle title="Host income" />
+              <Income />
+            </>
+          }
           loader={async ({ request }) => await requireAuth(request)}
         />
         <Route
           path="host-vans"
-          element={<HostVans />}
+          element={
+            <>
+              <PageTitle title="Host vans" />
+              <HostVans />
+            </>
+          }
           loader={hostVansLoader}
           errorElement={<Error />}
         />
         <Route
           path="host-vans/:id"
-          element={<HostVanDetail />}
+          element={
+            <>
+              <PageTitle title="Host van details" />
+              <HostVanDetail />
+            </>
+          }
           loader={hostVanDetailLoader}
           errorElement={<Error />}
         >
           <Route
             index
-            element={<HostVanInfo />}
+            element={
+              <>
+                <PageTitle title="Host vans details" />
+                <HostVanInfo />
+              </>
+            }
             loader={async ({ request }) => await requireAuth(request)}
           />
           <Route
             path="pricing"
-            element={<HostVanPricing />}
+            element={
+              <>
+                <PageTitle title="Host van pricing" />
+                <HostVanPricing />
+              </>
+            }
             loader={async ({ request }) => await requireAuth(request)}
           />
           <Route
             path="photos"
-            element={<HostVanPhotos />}
+            element={
+              <>
+                <PageTitle title="Host van photos" />
+                <HostVanPhotos />
+              </>
+            }
             loader={async ({ request }) => await requireAuth(request)}
           />
         </Route>
         <Route
           path="reviews"
-          element={<Reviews />}
+          element={
+            <>
+              <PageTitle title="Host van reviews" />
+              <Reviews />
+            </>
+          }
           loader={async ({ request }) => await requireAuth(request)}
         />
         {/* End protected routes */}
       </Route>
       <Route
         path="*"
-        element={<PageNotFound />}
+        element={
+          <>
+            <PageTitle title="404 | Page not found" />
+            <PageNotFound />
+          </>
+        }
       />
     </Route>
   ),
