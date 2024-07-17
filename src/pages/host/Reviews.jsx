@@ -1,5 +1,7 @@
 import reviewsGraph from "../../assets/images/reviews-graph.png"
 import { BsStarFill } from "react-icons/bs"
+import PageTitle from "../../components/PageTitle"
+import { hostVanId } from "../../utils/hostVanId"
 function Reviews() {
   const reviewsData = [
     {
@@ -18,40 +20,43 @@ function Reviews() {
     },
   ]
   return (
-    <section className="hosts-container  content-container hosts-reviews">
-      <h2>Reviews</h2>
-      <p>
-        Last <span>30 days</span>
-      </p>
-      <img
-        className="graph"
-        src={reviewsGraph}
-        alt="Review graph"
-        width="986"
-        loading="lazy"
-      />
-      <h3>Reviews (2)</h3>
-      {reviewsData.map((review) => (
-        <div
-          key={review.id}
-          className="review"
-        >
-          {[...Array(review.rating)].map((_, i) => (
-            <BsStarFill
-              className="review-star"
-              key={i}
-              aria-hidden="true"
-            />
-          ))}
-          <p className="visually-hidden">Rating: {review.rating} stars</p>
-          <ul>
-            <li>{review.name}</li>
-            <li>{review.date}</li>
-          </ul>
-          <p className="review-text">{review.text}</p>
-        </div>
-      ))}
-    </section>
+    <>
+      <PageTitle title={`Host id.${hostVanId} | Reviews | VanLife`} />
+      <section className="hosts-container  content-container hosts-reviews">
+        <h2>Reviews</h2>
+        <p>
+          Last <span>30 days</span>
+        </p>
+        <img
+          className="graph"
+          src={reviewsGraph}
+          alt="Review graph"
+          width="986"
+          loading="lazy"
+        />
+        <h3>Reviews (2)</h3>
+        {reviewsData.map((review) => (
+          <div
+            key={review.id}
+            className="review"
+          >
+            {[...Array(review.rating)].map((_, i) => (
+              <BsStarFill
+                className="review-star"
+                key={i}
+                aria-hidden="true"
+              />
+            ))}
+            <p className="visually-hidden">Rating: {review.rating} stars</p>
+            <ul>
+              <li>{review.name}</li>
+              <li>{review.date}</li>
+            </ul>
+            <p className="review-text">{review.text}</p>
+          </div>
+        ))}
+      </section>
+    </>
   )
 }
 

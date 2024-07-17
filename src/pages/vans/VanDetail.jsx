@@ -9,10 +9,19 @@ import {
 import { FaCircleArrowLeft } from "react-icons/fa6"
 import { getVans } from "../../api"
 import Loading from "../../components/Loading"
+import PageTitle from "../../components/PageTitle"
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function loader({ params }) {
-  return defer({ vans: getVans(params.id) })
+  const urlSegment = params.name
+  const vanName = urlSegment
+    .replace(/-/g, " ")
+    .replace(
+      /\w\S*/g,
+      (text) => text.charAt(0).toUpperCase() + text.substring(1).toLowerCase()
+    )
+
+  return defer({ vans: getVans(vanName) })
 }
 
 function VanDetail() {
@@ -25,6 +34,7 @@ function VanDetail() {
   function renderVanDetail(van) {
     return (
       <>
+        <PageTitle title={`Vans | ${van.name} | VanLife`} />
         <h1>{van.name}</h1>
         <picture>
           <source

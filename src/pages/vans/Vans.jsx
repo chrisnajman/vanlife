@@ -9,6 +9,7 @@ import {
 import { FaCircleArrowRight } from "react-icons/fa6"
 import { getVans } from "../../api"
 import Loading from "../../components/Loading"
+import PageTitle from "../../components/PageTitle"
 
 // eslint-disable-next-line react-refresh/only-export-components
 export function loader() {
@@ -42,7 +43,7 @@ function Vans() {
         <li key={van.id}>
           <Link
             className="link-button arrow"
-            to={van.id}
+            to={van.name.replace(/\s+/g, "-").toLowerCase()}
             state={{
               search: `?${searchParams.toString()}`,
               type: typeFilter,
@@ -121,12 +122,15 @@ function Vans() {
     )
   }
   return (
-    <div className="vans-container  list-container content-container">
-      <h1>Explore our van options</h1>
-      <Suspense fallback={<Loading title="vans" />}>
-        <Await resolve={dataPromise.vans}>{renderVanElements}</Await>
-      </Suspense>
-    </div>
+    <>
+      <PageTitle title="Vans | VanLife" />
+      <div className="vans-container  list-container content-container">
+        <h1>Explore our van options</h1>
+        <Suspense fallback={<Loading title="vans" />}>
+          <Await resolve={dataPromise.vans}>{renderVanElements}</Await>
+        </Suspense>
+      </div>
+    </>
   )
 }
 

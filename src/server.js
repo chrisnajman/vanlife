@@ -94,40 +94,32 @@ createServer({
   },
 
   routes() {
-    // changed from "/api":
     this.namespace = "/vanlife/api"
     this.logging = false
 
     // eslint-disable-next-line no-unused-vars
     this.get("/vans", (schema, request) => {
-      /* Test error handling by uncommenting: */
-      // return new Response(400, {}, { error: "Error fetching data" })
       return schema.vans.all()
     })
 
-    this.get("/vans/:id", (schema, request) => {
-      const id = request.params.id
-      return schema.vans.find(id)
+    this.get("/vans/:name", (schema, request) => {
+      const name = request.params.name
+      return schema.vans.findBy({ name })
     })
 
     // eslint-disable-next-line no-unused-vars
     this.get("/host", (schema, request) => {
       return schema.vans.all()
-      // Hard-code the hostId for now
-      // return schema.vans.where({ hostId: "123" })
     })
 
     // eslint-disable-next-line no-unused-vars
     this.get("/host/host-vans", (schema, request) => {
       return schema.vans.all()
-      // Hard-code the hostId for now
-      // return schema.vans.where({ hostId: "123" })
     })
 
-    this.get("/host/host-vans/:id", (schema, request) => {
-      const id = request.params.id
-      return schema.vans.find(id)
-      // return schema.vans.findBy({ id, hostId: "123" })
+    this.get("/host/host-vans/:name", (schema, request) => {
+      const name = request.params.name
+      return schema.vans.findBy({ name })
     })
 
     this.post("/login", (schema, request) => {

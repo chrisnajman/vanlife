@@ -454,6 +454,9 @@ img {
   }
 
   /** Reviews */
+  .review-star {
+    fill: orange;
+  }
 
   & .review {
     &:first-of-type p {
@@ -478,7 +481,6 @@ img {
     justify-content: center;
 
     & svg {
-      fill: orange;
       font-size: clamp(3rem, 2.1963rem + 3.7383vw, 5rem);
     }
   }

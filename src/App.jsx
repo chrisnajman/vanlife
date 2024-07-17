@@ -29,70 +29,38 @@ import Error from "./components/Error"
 import { requireAuth } from "./utils/require-auth"
 import "./server"
 
-import PageTitle from "./components/PageTitle"
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Layout />}>
       <Route
         index
-        element={
-          <>
-            <PageTitle title="VanLife Home" />
-            <Home />
-          </>
-        }
+        element={<Home />}
       />
       <Route
         path="login"
-        element={
-          <>
-            <PageTitle title="Login" />
-            <Login />
-          </>
-        }
+        element={<Login />}
         loader={loginLoader}
         action={loginAction}
       />
       <Route
         path="about"
-        element={
-          <>
-            <PageTitle title="About VanLife" />
-            <About />
-          </>
-        }
+        element={<About />}
       />
       <Route
         path="vans"
-        element={
-          <>
-            <PageTitle title="List of vans for hire" />
-            <Vans />
-          </>
-        }
+        element={<Vans />}
         loader={vansLoader}
         errorElement={<Error />}
       />
       <Route
-        path="vans/:id"
-        element={
-          <>
-            <PageTitle title="Van details" />
-            <VanDetail />
-          </>
-        }
+        path="vans/:name"
+        element={<VanDetail />}
         loader={vanDetailLoader}
         errorElement={<Error />}
       />
       <Route
         path="host"
-        element={
-          <>
-            <PageTitle title="Host dashboard" />
-            <LayoutHost />
-          </>
-        }
+        element={<LayoutHost />}
       >
         {/* Begin protected routes */}
         <Route
@@ -103,19 +71,14 @@ const router = createBrowserRouter(
         />
         <Route
           path="income"
-          element={
-            <>
-              <PageTitle title="Host income" />
-              <Income />
-            </>
-          }
+          element={<Income />}
           loader={async ({ request }) => await requireAuth(request)}
         />
         <Route
           path="host-vans"
           element={
             <>
-              <PageTitle title="Host vans" />
+              {/* <PageTitle title="Host vans | VanLife" /> */}
               <HostVans />
             </>
           }
@@ -123,67 +86,37 @@ const router = createBrowserRouter(
           errorElement={<Error />}
         />
         <Route
-          path="host-vans/:id"
-          element={
-            <>
-              <PageTitle title="Host van details" />
-              <HostVanDetail />
-            </>
-          }
+          path="host-vans/:name"
+          element={<HostVanDetail />}
           loader={hostVanDetailLoader}
           errorElement={<Error />}
         >
           <Route
             index
-            element={
-              <>
-                <PageTitle title="Host vans details" />
-                <HostVanInfo />
-              </>
-            }
+            element={<HostVanInfo />}
             loader={async ({ request }) => await requireAuth(request)}
           />
           <Route
             path="pricing"
-            element={
-              <>
-                <PageTitle title="Host van pricing" />
-                <HostVanPricing />
-              </>
-            }
+            element={<HostVanPricing />}
             loader={async ({ request }) => await requireAuth(request)}
           />
           <Route
             path="photos"
-            element={
-              <>
-                <PageTitle title="Host van photos" />
-                <HostVanPhotos />
-              </>
-            }
+            element={<HostVanPhotos />}
             loader={async ({ request }) => await requireAuth(request)}
           />
         </Route>
         <Route
           path="reviews"
-          element={
-            <>
-              <PageTitle title="Host van reviews" />
-              <Reviews />
-            </>
-          }
+          element={<Reviews />}
           loader={async ({ request }) => await requireAuth(request)}
         />
         {/* End protected routes */}
       </Route>
       <Route
         path="*"
-        element={
-          <>
-            <PageTitle title="404 | Page not found" />
-            <PageNotFound />
-          </>
-        }
+        element={<PageNotFound />}
       />
     </Route>
   ),

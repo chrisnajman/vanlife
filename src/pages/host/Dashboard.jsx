@@ -18,7 +18,12 @@ const stars = []
 const starsNum = 2
 const starsTotal = 2
 for (let i = 0; i < starsNum; i++) {
-  stars.push(<MdOutlineStar key={i} />)
+  stars.push(
+    <MdOutlineStar
+      key={i}
+      className="review-star"
+    />
+  )
 }
 
 function Dashboard() {
@@ -32,7 +37,7 @@ function Dashboard() {
           <li key={van.id}>
             <Link
               className="link-button arrow"
-              to={`host-vans/${van.id}`}
+              to={`host-vans/${van.name.replace(/\s+/g, "-").toLowerCase()}`}
               aria-label={`View details for ${van.name}, 
                              priced at &#36;${van.price} per day`}
             >
@@ -70,7 +75,7 @@ function Dashboard() {
 
   return (
     <div className="hosts-container content-container  host-vans-container list-container dashboard-container">
-      <h1>Welcome Host (ID: {hostVanId})</h1>
+      <h1>Welcome Host ID.{hostVanId}</h1>
       <section className="income">
         <h2>Income</h2>
         <p>

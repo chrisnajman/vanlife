@@ -1,7 +1,7 @@
 const baseUrl = "/vanlife"
 
-export async function getVans(id) {
-  const url = id ? `${baseUrl}/api/vans/${id}` : `${baseUrl}/api/vans`
+export async function getVans(name) {
+  const url = name ? `${baseUrl}/api/vans/${name}` : `${baseUrl}/api/vans`
   const res = await fetch(url)
   if (!res.ok) {
     throw {
@@ -14,9 +14,9 @@ export async function getVans(id) {
   return data.vans
 }
 
-export async function getHostVans(id) {
-  const url = id
-    ? `${baseUrl}/api/host/host-vans/${id}`
+export async function getHostVans(name) {
+  const url = name
+    ? `${baseUrl}/api/host/host-vans/${name}`
     : `${baseUrl}/api/host/host-vans`
   const res = await fetch(url)
   if (!res.ok) {
