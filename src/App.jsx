@@ -31,7 +31,10 @@ import "./server"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route element={<Layout />}>
+    <Route
+      path="/"
+      element={<Layout />}
+    >
       <Route
         index
         element={<Home />}
@@ -76,12 +79,7 @@ const router = createBrowserRouter(
         />
         <Route
           path="host-vans"
-          element={
-            <>
-              {/* <PageTitle title="Host vans | VanLife" /> */}
-              <HostVans />
-            </>
-          }
+          element={<HostVans />}
           loader={hostVansLoader}
           errorElement={<Error />}
         />
