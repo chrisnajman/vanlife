@@ -12,45 +12,24 @@ function Nav() {
         <li>
           <NavLink
             to="."
-            aria-current="page"
             end
           >
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="about"
-            aria-current="page"
-          >
-            About
-          </NavLink>
+          <NavLink to="about">About</NavLink>
         </li>
         <li>
-          <NavLink
-            to="vans"
-            aria-current="page"
-          >
-            Vans
-          </NavLink>
+          <NavLink to="vans">Vans</NavLink>
         </li>
         <li>
-          <NavLink
-            to="host"
-            aria-current="page"
-          >
-            Host
-          </NavLink>
+          <NavLink to="host">Host</NavLink>
         </li>
       </ul>
       <ul className="login-links">
         <li>
-          <NavLink
-            to="login"
-            aria-current="page"
-          >
-            Login
-          </NavLink>
+          <NavLink to="login">Login</NavLink>
         </li>
         <li>
           <Link

@@ -8,27 +8,16 @@ function HostVanDetailNav() {
           <li>
             <NavLink
               to="."
-              aria-current="page"
               end
             >
               Details
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="pricing"
-              aria-current="page"
-            >
-              Pricing
-            </NavLink>
+            <NavLink to="pricing">Pricing</NavLink>
           </li>
           <li>
-            <NavLink
-              to="photos"
-              aria-current="page"
-            >
-              Photos
-            </NavLink>
+            <NavLink to="photos">Photos</NavLink>
           </li>
         </ul>
       </nav>

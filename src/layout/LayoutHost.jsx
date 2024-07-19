@@ -11,35 +11,19 @@ function LayoutHost() {
           <li>
             <NavLink
               to="."
-              aria-current="page"
               end
             >
               Dashboard
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="income"
-              aria-current="page"
-            >
-              Income
-            </NavLink>
+            <NavLink to="income">Income</NavLink>
           </li>
           <li>
-            <NavLink
-              to="host-vans"
-              aria-current="page"
-            >
-              Vans
-            </NavLink>
+            <NavLink to="host-vans">Vans</NavLink>
           </li>
           <li>
-            <NavLink
-              to="reviews"
-              aria-current="page"
-            >
-              Reviews
-            </NavLink>
+            <NavLink to="reviews">Reviews</NavLink>
           </li>
         </ul>
       </nav>
