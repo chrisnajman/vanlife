@@ -46,7 +46,7 @@ function HostVanDetail() {
         </picture>
         <h1>{van.name}</h1>
         <HostVanDetailNav />
-        {<Outlet context={{ van }} />}
+        <Outlet context={{ van }} />
       </>
     )
   }
