@@ -731,6 +731,16 @@ img {
   }
 }
 
+/** Error */
+.error-info {
+  padding: 0;
+  margin-inline: auto;
+
+  &:empty {
+    display: none;
+  }
+}
+
 /** Login */
 
 .login-container {

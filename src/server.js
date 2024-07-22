@@ -99,6 +99,8 @@ createServer({
 
     // eslint-disable-next-line no-unused-vars
     this.get("/vans", (schema, request) => {
+      /**  Uncomment following line to test error messages (and comment out: return schema.vans.all()) */
+      // return new Response(400, {}, { error: "Error fetching data" })
       return schema.vans.all()
     })
 

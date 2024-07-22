@@ -11,6 +11,15 @@ export default function Error() {
       <PageTitle title={`Error: ${error.message}`} />
       <div className="content-container page-not-found-container">
         <h1>Error: {error.message}</h1>
+        <ul className="error-info">
+          {error.status && (
+            <li>
+              Status: {error.status}
+              {error.statusText && `, ${error.statusText}`}
+            </li>
+          )}
+        </ul>
+
         <Link
           to="/"
           className="back-link arrow"
